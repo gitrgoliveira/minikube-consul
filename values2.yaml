@@ -1,0 +1,38 @@
+global:
+  name: consul
+  imageK8S: hashicorp/consul-k8s:0.15.0
+  image: hashicorp/consul-enterprise:1.8.0-ent-beta1
+  datacenter: cluster-2
+  tls:
+    enabled: true
+    caCert:
+      secretName: consul-federation
+      secretKey: caCert
+    caKey:
+      secretName: consul-federation
+      secretKey: caKey
+  federation:
+    enabled: true
+server:
+  affinity: ""
+  extraVolumes:
+  - type: secret
+    name: consul-federation
+    items:
+      - key: serverConfigJSON
+        path: config.json
+    load: true
+connectInject:
+  enabled: true
+ui:
+  service:
+    type: NodePort
+meshGateway:
+  enabled: true
+  replicas: 1
+  wanAddress:
+    source: Service
+  service:
+    type: NodePort
+    nodePort: 30000
+  affinity: ""
