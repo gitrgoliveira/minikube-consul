@@ -25,6 +25,7 @@ At the end of the *setup*, you'll see the address of all exposed services of eac
    * dashboard-service
 
 **NOTE:** *consul-ui will show up wth `http` instead of `https`*
+
 **NOTE2:** *the values.yaml files are altered to be compatible with minikube and not a recommended production setup*
 
 Use `02_teardown.sh` to remove it all from your machine.
