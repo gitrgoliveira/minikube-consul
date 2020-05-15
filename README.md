@@ -4,6 +4,11 @@
 
 The objective fo this repo is to convey the value of Consul in kubernetes environments
 
+The steps are based in the fantastic work done at https://learn.hashicorp.com/consul/kubernetes/mesh-gateway
+
+For more information, please visit https://www.consul.io/docs/connect/wan-federation-via-mesh-gateways
+
+
 ## Requirements
 
 1. kubectl
