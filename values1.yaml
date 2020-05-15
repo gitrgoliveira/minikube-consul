@@ -9,6 +9,11 @@ global:
   tls:
     enabled: true
 server:
+  replicas: 1
+  bootstrapExpect: 1
+  disruptionBudget:
+    enabled: true
+    maxUnavailable: 0
   affinity: ""
 connectInject:
   enabled: true
