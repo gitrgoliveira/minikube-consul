@@ -14,11 +14,6 @@ global:
   federation:
     enabled: true
 server:
-  replicas: 1
-  bootstrapExpect: 1
-  disruptionBudget:
-    enabled: true
-    maxUnavailable: 0
   affinity: ""
   extraVolumes:
   - type: secret
