@@ -1,7 +1,7 @@
 global:
   name: consul
-  imageK8S: hashicorp/consul-k8s:0.15.0
-  image: hashicorp/consul-enterprise:1.8.0-ent-beta2
+  imageK8S: hashicorp/consul-k8s:0.16.0
+  image: hashicorp/consul-enterprise:1.8.0-ent
   datacenter: cluster-2
   tls:
     enabled: true

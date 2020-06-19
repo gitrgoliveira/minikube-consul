@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source helper.sh
 
-CONSUL_HELM_VERSION=0.21.0
+CONSUL_HELM_VERSION=0.22.0
 helm repo add hashicorp https://helm.releases.hashicorp.com
 
 c1_kctx
