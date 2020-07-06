@@ -1,10 +1,12 @@
 # Local Consul Demos
 
+*Please READ the Requirements section!*
+
 ## Overview
 
-The objective fo this repo is to convey the value of Consul in kubernetes environments
+The objective of this repo is to display the possibilities of the different Consul gateways in a kubernetes environments
 
-The steps are based in the fantastic work done at https://learn.hashicorp.com/consul/kubernetes/mesh-gateway
+The steps are based in the fantastic work done at https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
 
 For more information, please visit https://www.consul.io/docs/connect/wan-federation-via-mesh-gateways
 
@@ -14,7 +16,8 @@ For more information, please visit https://www.consul.io/docs/connect/wan-federa
 1. kubectl
 2. minikube
 3. helm
-4. an internet connection
+4. Consul 1.8.0+ cli
+5. an internet connection
 
 ## Mesh Gateway Federation
 
