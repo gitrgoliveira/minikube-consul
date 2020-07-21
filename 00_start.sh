@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 source helper.sh
 
-minikube start -p cluster-1 --vm=true --driver=virtualbox
-minikube start -p cluster-2 --vm=true --driver=virtualbox
+minikube start -p cluster-1 --vm=true --driver=hyperkit
+minikube start -p cluster-2 --vm=true --driver=hyperkit
 
 eval $(minikube docker-env -p cluster-1)
 docker build --rm webapp_v1/ -t webapp:v1
