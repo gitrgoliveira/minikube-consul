@@ -46,6 +46,7 @@ consul1 "config write" "consul_config/dashboard-defaults.hcl"
 consul1 "config write" "consul_config/webapp-defaults.hcl"
 consul1 "config write" "consul_config/webapp-resolver.hcl"
 consul1 "config write" "consul_config/webapp-splitter.hcl"
+consul1 "config write" "consul_config/webapp-router.hcl"
 
 # Setup default deny intention.
 consul1 'intention create' '-deny "*" "*"' || true
