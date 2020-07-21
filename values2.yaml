@@ -5,6 +5,7 @@ global:
   datacenter: cluster-2
   tls:
     enabled: true
+    verify: false
     caCert:
       secretName: consul-federation
       secretKey: caCert
@@ -14,7 +15,12 @@ global:
   federation:
     enabled: true
 server:
+  replicas: 1
+  bootstrapExpect: 1
   affinity: ""
+  disruptionBudget:
+    enabled: true
+    maxUnavailable: 0
   extraVolumes:
   - type: secret
     name: consul-federation
@@ -36,3 +42,24 @@ meshGateway:
     type: NodePort
     nodePort: 30000
   affinity: ""
+ingressGateways:
+  enabled: true
+  defaults:
+    replicas: 1
+    service:
+      type: NodePort
+      ports:
+        - port: 30443
+          nodePort: 30443
+        - port: 5000
+          nodePort: 30080
+    affinity: ""
+  gateways:
+    - name: dashboard-ingress-gateway
+terminatingGateways:
+  enabled: true
+  defaults:
+    replicas: 1
+    affinity: ""
+  gateways:
+    - name: counting-terminating-gateway

@@ -1,0 +1,8 @@
+version: '3.6'
+services:
+  external-counting:
+    container_name: external-counting
+    hostname: external-counting
+    image: hashicorp/counting-service:0.0.2
+    ports:
+      - "9001:9001"

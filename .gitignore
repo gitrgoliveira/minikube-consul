@@ -2,3 +2,4 @@
 consul/
 consul-federation-secret.yaml
 .DS_Store
+external.json

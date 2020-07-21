@@ -1,5 +1,24 @@
-export HOST_IP=$(ipconfig getifaddr en0)
-export CONSUL_ADDR=https://$HOST_IP:8500
+# export HOST_IP=$(ipconfig getifaddr en0)
+# export CONSUL_ADDR=https://$HOST_IP:8500
+
+# export CONSUL_HTTP_ADDR=$(minikube service consul-ui -p cluster-1 --https --url)
+
+function consul1 {
+    CONSUL_HTTP_ADDR=$(minikube service consul-ui -p cluster-1 --https --url)
+    echo -n | openssl s_client -connect ${CONSUL_HTTP_ADDR//https:\/\/}  | \
+        sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cluster-1.cert
+
+    echo "consul $1 -http-addr=$CONSUL_HTTP_ADDR -ca-file=cluster-1.cert -tls-server-name=127.0.0.1 $2" | bash
+    rm -f cluster-1.cert
+}
+function consul2 {
+    CONSUL_HTTP_ADDR=$(minikube service consul-ui -p cluster-2 --https --url)
+    echo -n | openssl s_client -connect ${CONSUL_HTTP_ADDR//https:\/\/}  | \
+        sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cluster-2.cert
+
+    echo "consul $1 -http-addr=$CONSUL_HTTP_ADDR -ca-file=cluster-2.cert -tls-server-name=127.0.0.1 $2" | bash
+    rm -f cluster-2.cert
+}
 
 function c1_kctl {
     kubectl config use-context cluster-1

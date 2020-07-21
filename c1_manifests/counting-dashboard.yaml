@@ -18,13 +18,15 @@ spec:
     metadata:
       annotations:
         consul.hashicorp.com/connect-inject: "true"
-        consul.hashicorp.com/connect-service-upstreams: "counting:9001:cluster-1"
+        consul.hashicorp.com/connect-service-upstreams: "external-counting:9001:cluster-1"
+        consul.hashicorp.com/connect-service-protocol: "tcp"
+        consul.hashicorp.com/service-tags: "v2"
       labels:
         app: dashboard-service
     spec:
       containers:
       - name: dashboard-service
-        image: hashicorp/dashboard-service:0.0.3
+        image: hashicorp/dashboard-service:0.0.4
         ports:
         - containerPort: 9002
           name: http
