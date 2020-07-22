@@ -23,8 +23,4 @@ EOF
 CONSUL_HTTP_ADDR=$(minikube service consul-ui -p cluster-1 --https --url)
 curl -k --request PUT --data @external.json $CONSUL_HTTP_ADDR/v1/catalog/register
 
-CONSUL_HTTP_ADDR=$(minikube service consul-ui -p cluster-2 --https --url)
-curl -k --request PUT --data @external.json $CONSUL_HTTP_ADDR/v1/catalog/register
-
-
 consul1 "config write" "consul_config/counting-terminating-gateway.hcl"

@@ -57,9 +57,4 @@ ingressGateways:
   gateways:
     - name: dashboard-ingress-gateway
 terminatingGateways:
-  enabled: true
-  defaults:
-    replicas: 1
-    affinity: ""
-  gateways:
-    - name: counting-terminating-gateway
+  enabled: false
