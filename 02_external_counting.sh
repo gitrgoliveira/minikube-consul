@@ -6,17 +6,17 @@ export HOST_IP=$(ipconfig getifaddr en0)
 
 tee external.json > /dev/null <<EOF
 {
-    "Node": "legacy_node",
-    "Address": "$HOST_IP",
-    "NodeMeta": {
-      "external-node": "true",
-      "external-probe": "true"
-    },
-    "Service": {
-      "ID": "counting1",
-      "Service": "external-counting",
-      "Port": 9001
-    }
+  "Node": "legacy_node",
+  "Address": "$HOST_IP",
+  "NodeMeta": {
+    "external-node": "true",
+    "external-probe": "true"
+  },
+  "Service": {
+    "ID": "counting1",
+    "Service": "external-counting",
+    "Port": 9001
+  }
 }
 EOF
 

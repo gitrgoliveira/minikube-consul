@@ -19,7 +19,7 @@ I only tested this demo on macOS X with the Consul Enterprise version. There is 
 2. minikube
 3. helm3
 4. docker-compose
-5. Consul 1.8.0+ cli
+5. Consul 1.8.0+ cli installed on your machine
 6. an internet connection...
 
 ### Using Consul Enterprise
