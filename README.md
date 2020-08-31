@@ -8,7 +8,7 @@ The objective of this repo is to display the possibilities of the different Cons
 
 The steps are based in the fantastic work done at https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
 
-For more information, please visit https://www.consul.io/docs/connect/wan-federation-via-mesh-gateways
+For more information, please visit https://www.consul.io/docs/connect/gateways/wan-federation-via-mesh-gateways
 
 
 ## Requirements
