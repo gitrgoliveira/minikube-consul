@@ -61,6 +61,8 @@ To start this demo, follow:
 ## Demos
 ### Mesh Gateways
 
+![Gateways](diagrams/gateways.png)
+
 #### Ingress
 The services accessible via each ingress gateway are the dashboard (in eahc cluster) and the webapp
 
@@ -81,16 +83,23 @@ If you access the dashboard on **cluster-2** - https://dashboard-service.ingress
 ### Layer 7
 
 #### Canary
+![Canary](diagrams/canary.png)
+
 Access https://webapp.ingress.consul:30080/?x-debug so you will always get `webapp v2`
 
 #### Rollout
-Open the file `consul_config/webapp-splitter.hcl` and change the values to whatever you want.
+The rollout process is as follows:
+
+![Canary](diagrams/splitter.png)
+
+Open the file `consul_config/webapp-splitter.hcl` and change the values to the percentages you want.
 
 To apply the file run:
 ```bash
 source helper.sh
 consul1 "config write" "consul_config/webapp-splitter.hcl"
 ```
+
 
 #### Resolver
 
