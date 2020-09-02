@@ -68,8 +68,6 @@ The services accessible via each ingress gateway are the dashboard (in eahc clus
 
 * https://dashboard-service.ingress.cluster-1.consul:30443
 * https://dashboard-service.ingress.cluster-2.consul:30443
-* https://webapp.ingress.consul:30080
-
 
 #### Federation/Mesh gateway
 At the end of `01_setup.sh` you can see all the URL to access the Consul UI and navigate between data centers.
@@ -85,7 +83,9 @@ If you access the dashboard on **cluster-2** - https://dashboard-service.ingress
 #### Canary
 ![Canary](diagrams/canary.png)
 
-Access https://webapp.ingress.consul:30080/?x-debug so you will always get `webapp v2`
+https://webapp.ingress.consul:30080 will return `webapp - v1`
+
+Access https://webapp.ingress.consul:30080/?x-debug so you will always get `webapp - v2`
 
 #### Rollout
 The rollout process is as follows:
