@@ -101,19 +101,25 @@ The rollout process is as follows:
 
 ![Canary](diagrams/splitter.png)
 
-Open the file `consul_config/webapp-splitter.hcl` and change the values to the percentages you want.
+1. Open the file `consul_config/webapp-splitter.hcl` and change the values to the percentages you want.
 
-To apply the file run:
+2. To apply the file run:
 ```bash
 source helper.sh
 consul1 "config write" "consul_config/webapp-splitter.hcl"
 ```
 
+3. Keep refreshing https://webapp.ingress.consul:30080 to see the differences.
 
+4. Repeat with different values
+
+### Quick explanation of the Consul config
 #### Resolver
 
 *Service metadata* has been added to see the annotations in the files in `c1_manifests/counting-webapp-v1.yaml` and `c1_manifests/counting-webapp-v2.yaml`.
 This allows the filter in `consul_config/webapp-resolver.hcl` to work ad define 2 subsets.
+
+The *Failover* entry means that if the service is not found it should resolve to the `webapp` service in `cluster-1` datacenter, which enables the ingress gateway request in `cluster-2` to be routed to `cluster-1`
 
 #### Router
 
