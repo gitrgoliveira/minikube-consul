@@ -83,9 +83,18 @@ If you access the dashboard on **cluster-2** - https://dashboard-service.ingress
 #### Canary
 ![Canary](diagrams/canary.png)
 
-https://webapp.ingress.consul:30080 will return `webapp - v1`
-
+The above image means that https://webapp.ingress.consul:30080 will return `webapp - v1`
 Access https://webapp.ingress.consul:30080/?x-debug so you will always get `webapp - v2`
+
+##### Bonus
+
+You can also use the ingress gateway from *Cluster 2* to access the services that exist in *Cluster 1*
+
+![Canary in cluster 2](diagrams/canary-ingress.png)
+
+The endpoints are:
+ - https://webapp.ingress.cluster-2.consul:30080"
+ - https://webapp.ingress.cluster-2.consul:30080/?x-debug"
 
 #### Rollout
 The rollout process is as follows:
