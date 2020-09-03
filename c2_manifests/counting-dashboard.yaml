@@ -17,6 +17,8 @@ spec:
   template:
     metadata:
       annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9102"
         consul.hashicorp.com/connect-inject: "true"
         consul.hashicorp.com/connect-service-upstreams: "external-counting:9001:cluster-1"
         consul.hashicorp.com/connect-service-protocol: "tcp"

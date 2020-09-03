@@ -17,6 +17,8 @@ spec:
   template:
     metadata:
       annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9102"
         consul.hashicorp.com/connect-inject: "true"
         consul.hashicorp.com/connect-service-protocol: "http"
         consul.hashicorp.com/connect-service-port: "5000"
@@ -28,14 +30,16 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: webapp:v1
-        imagePullPolicy: Never
+        image: ghcr.io/gitrgoliveira/minikube-consul/webapp:v2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
           name: http
         env:
         - name: COUNTING_SERVICE_URL
           value: "http://localhost:9001"
+        - name: BG_COLOR
+          value: "WHITE"
 ---
 apiVersion: v1
 kind: Service

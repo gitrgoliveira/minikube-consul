@@ -16,11 +16,20 @@ Listeners = [
    ]
  },
  {
-   Port = 5000
+   Port = 30080
    Protocol = "http"
    Services = [
      {
         Name = "webapp"
+     }
+   ]
+ },
+ {
+   Port = 30088
+   Protocol = "http"
+   Services = [
+     {
+        Name = "*"
      }
    ]
  }

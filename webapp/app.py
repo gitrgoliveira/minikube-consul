@@ -13,6 +13,7 @@ from flask_session import Session
 def counter():
     counting_service = os.environ.get("COUNTING_SERVICE_URL",
         "http://localhost:9001")
+    color = os.environ.get("BG_COLOR", "white")
     data = ""
     try:
         # do the request.
@@ -21,8 +22,8 @@ def counter():
     except:
         data = "counting service unreachable"
 
-    output = """<body style="background-color: #ccffcc;">
-    <p>&nbsp;</p>
+    output = """<body style="background-color: {color};">
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <div>
 <div style="text-align: center;">This is a simple dashboard, rendered server-side</div>
@@ -45,7 +46,8 @@ def counter():
 </div>
 </div>
 </div></body>
-    """.format( host=os.environ.get('HOSTNAME'),
+    """.format( color=color,
+                host=os.environ.get('HOSTNAME'),
                 count_addr=counting_service,
                 count_json=json.dumps(data, indent=2))
 

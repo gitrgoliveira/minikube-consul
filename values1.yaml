@@ -1,7 +1,6 @@
 global:
   name: consul
-  imageK8S: hashicorp/consul-k8s:0.16.0
-  image: hashicorp/consul-enterprise:1.8.0-ent
+  image: hashicorp/consul-enterprise:1.8-ent
   datacenter: cluster-1
   federation:
     enabled: true
@@ -39,8 +38,10 @@ ingressGateways:
       ports:
         - port: 30443
           nodePort: 30443
-        - port: 5000
+        - port: 30080
           nodePort: 30080
+        - port: 30088
+          nodePort: 30088
     affinity: ""
   gateways:
     - name: dashboard-ingress-gateway
