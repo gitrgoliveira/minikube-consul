@@ -16,4 +16,4 @@ removehost webapp.ingress.consul
 
 minikube delete -p cluster-1
 minikube delete -p cluster-2
-docker-compose down
+docker-compose down -v
