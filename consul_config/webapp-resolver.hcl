@@ -9,3 +9,8 @@ Subsets = {
     Filter = "Service.Meta.version == v2"
   }
 }
+Failover = {
+  "*" = {
+    Datacenters = ["cluster-1"]
+  }
+}
