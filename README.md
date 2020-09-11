@@ -93,8 +93,8 @@ You can also use the ingress gateway from *Cluster 2* to access the services tha
 ![Canary in cluster 2](diagrams/canary-ingress.png)
 
 The endpoints are:
- - https://webapp.ingress.cluster-2.consul:30080"
- - https://webapp.ingress.cluster-2.consul:30080/?x-debug"
+ - https://webapp.ingress.cluster-2.consul:30080
+ - https://webapp.ingress.cluster-2.consul:30080/?x-debug
 
 #### Rollout
 The rollout process is as follows:
