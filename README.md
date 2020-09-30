@@ -15,15 +15,15 @@ For more information, please visit https://www.consul.io/docs/connect/gateways/w
 
 I only tested this demo on macOS X with the Consul Enterprise version. There is no reason for this demo to not be able to use Consul OSS.
 
-1. kubectl
-2. minikube
+1. kubectl 1.19+
+2. minikube 1.13+
 3. helm3
 4. docker-compose
 5. Consul 1.8.0+ cli installed on your machine
 6. an internet connection...
 
 ### Using Consul Enterprise
-For **Consul Enterprise**, please install the license, in **line 66 and 67 of `01_setup.sh`**
+For **Consul Enterprise**, please install the license, in **line 72 and 73 of `01_setup.sh`**
 
 ### Using Consul OSS
 You need to edit the files `values1.yaml` and `values2.yaml`, by removing the specified container images
@@ -64,7 +64,7 @@ To start this demo, follow:
 ![Gateways](diagrams/gateways.png)
 
 #### Ingress
-The services accessible via each ingress gateway are the dashboard (in eahc cluster) and the webapp
+The services accessible via each ingress gateway are the dashboard (in each cluster) and the webapp
 
 * https://dashboard-service.ingress.cluster-1.consul:30443
 * https://dashboard-service.ingress.cluster-2.consul:30443
